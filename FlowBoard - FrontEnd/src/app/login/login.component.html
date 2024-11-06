@@ -1,0 +1,69 @@
+<!-- <h2>Login</h2>
+<form (ngSubmit)="onSubmit()">
+  <label for="username">Username:</label>
+  <input type="text" id="username" [(ngModel)]="username" name="username" required>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" [(ngModel)]="password" name="password" required>
+
+  <button type="submit">Login</button>
+</form>
+<p>Don't have an account? <a routerLink="/register">Register here</a></p> -->
+<div class="body">
+  <section class="container">
+      <div class="login-container">
+          <div class="circle circle-one"></div>
+          <div class="form-container">
+              <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+              <h1 class="opacity">LOGIN</h1>
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+                <div class="form-group">
+                  <!-- <input type="text" placeholder="USERNAME" /> -->
+                  <input formControlName="userId" type="text" placeholder="EMAIL" />
+                  <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="error">
+                    <div *ngIf="username?.errors?.['required']">Email is required.</div>
+                    <div *ngIf="username?.errors?.['invalidEmail']">Enter a valid Email</div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <!-- <input type="password" placeholder="PASSWORD" /> -->
+                  <input formControlName="userPassword" type="password" placeholder="PASSWORD" />
+                  <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+                    <div *ngIf="password?.errors?.['required']">Password is required.</div>
+                    <div *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+                  </div>
+                </div>
+                  <button class="opacity">SUBMIT</button>
+              </form>
+              <!-- <div class="register-forget opacity">
+                  <a href="">FORGOT PASSWORD</a>
+              </div> -->
+          </div>
+          <div class="circle circle-two"></div>
+      </div>
+      <div class="theme-btn-container"></div>
+  </section>
+</div>
+<!-- <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+  <img src="https://raw.githubusercontent.com/hicodersofficial/glassmorphism-login-form/master/assets/illustration.png" alt="illustration" class="illustration" />
+  <h1 class="opacity">LOGIN</h1>
+  <div class="form-group">
+    <input formControlName="username" type="text" placeholder="USERNAME" />
+    <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="error">
+      <div *ngIf="username?.errors?.['required']">Username is required.</div>
+      <div *ngIf="username?.errors?.['minlength']">Username must be at least 4 characters long.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input formControlName="password" type="password" placeholder="PASSWORD" />
+    <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
+      <div *ngIf="password?.errors?.['required']">Password is required.</div>
+      <div *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+    </div>
+  </div>
+  <button type="submit" [disabled]="loginForm.invalid" class="opacity">SUBMIT</button>
+  <div class="register-forget opacity">
+     <a href="">REGISTER</a> 
+    <a href="">FORGOT PASSWORD</a>
+  </div>
+</form> -->

@@ -1,0 +1,69 @@
+/* Handjet Custom Font Styling */
+.handjet-custom {
+  font-family: "Handjet", sans-serif;
+  font-optical-sizing: auto; /* Check browser compatibility */
+  font-weight: 400; /* Change this to the desired weight */
+  font-style: normal;
+  letter-spacing: 0.2em; /* Adjust the value as needed */
+  color: rgb(88, 8, 52);
+  font-variation-settings:
+    "ELGR" 1,
+    "ELSH" 2;
+}
+
+/* Toolbar Title Styling */
+mat-toolbar span:first-child {
+  font-size: 2rem; /* Size of the title text */
+  font-weight: bold; /* Bold text for the title */
+  color: black; /* Title text color */
+  margin-left: 0; /* Remove left margin to align text to the far left */
+  flex: 0 0 auto; /* Prevent the title from growing or shrinking */
+}
+
+/* Toolbar Styling */
+mat-toolbar {
+  padding: 0 16px; /* Adjust padding as needed */
+  background-color: #f7d18ac9; /* Primary color for the toolbar background */
+  color: white; /* Toolbar text color */
+  display: flex;
+  justify-content: space-between; /* Space out title and buttons */
+  align-items: center; /* Center items vertically */
+}
+
+/* Spacer styling */
+.spacer {
+  flex: 1 1 auto; /* Pushes the buttons to the right */
+}
+
+/* Button Styles */
+mat-button {
+  color: white; /* Button text color */
+  margin-left: 8px; /* Space between buttons */
+}
+
+/* Button Hover Effects */
+mat-button:hover {
+  background-color: rgba(255, 255, 255, 0.12); /* Lightens button background on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  /* Stack buttons vertically on small screens */
+  mat-toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px;
+  }
+
+  /* Full-width buttons on smaller screens */
+  mat-button {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 8px; /* Space between buttons */
+  }
+
+  /* Remove bottom margin from the last button */
+  mat-button:last-child {
+    margin-bottom: 0;
+  }
+}

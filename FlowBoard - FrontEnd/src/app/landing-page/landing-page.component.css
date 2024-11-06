@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+.required {
+  color: red;
+}
+.column {
+  border: 1px solid hsla(0, 0%, 65%, 0.158); /* Semi-transparent border */
+  box-shadow: 0 0 36px 1px rgba(0, 0, 0, 0.2); /* Shadow similar to glassmorphism effect */
+  border-radius: 10px; /* Rounded corners */
+  backdrop-filter: blur(20px); 
+  background: rgba(255, 255, 255, 0.1); /* Transparent white background */
+  padding: 2rem;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  width: 25%; 
+  flex-direction: column;
+  
+}
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Optional: Adjust the hover effect for the column */
+
+
+.card {
+  background-color: white;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: move;
+}
+
+.task-form {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f1d8b2;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.task-form input,
+.task-form select {
+  margin: 5px 0;
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  background-color: #e7f186; 
+}
+
+.task-form button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.task-form button:first-of-type {
+  background-color: #4caf50;
+  color: white;
+}
+
+.task-form button:last-of-type {
+  background-color: #f44336;
+  color: white;
+}
+h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add-task-button button {
+  background-color: transparent; /* No background */
+  border: none; /* No border */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 24px; /* Adjust the font size for visibility */
+  color: #111111; /* Change color to match your theme */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.add-task-button button:hover {
+  color: #388e3c; /* Darker shade on hover for better visibility */
+}
+
+/* Optional: Style for the icon itself */
+.add-task-button i {
+  margin: 0; /* Remove any default margin */
+  
+}
+
+.caveat-column {
+  font-family: "Caveat", cursive;
+  font-weight: 500; /* Adjust the weight as needed (400 to 700) */
+  font-size: 3.5rem; /* Adjust the size as needed */
+  color: rgb(88, 8, 52);
+}
+
+.highlighted-form {
+  background-color: #e0f7fa; /* light blue color */
+}

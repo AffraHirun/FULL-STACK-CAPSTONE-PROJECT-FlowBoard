@@ -1,0 +1,116 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <!-- To Do Column -->
+  <div #todoList="cdkDropList" 
+       [cdkDropListConnectedTo]="[doneList, inProgressList]" 
+       [cdkDropListData]="columns[0].cards" 
+       class="column" 
+       cdkDropList 
+       (cdkDropListDropped)="onDrop($event)">
+       <h2 class="caveat-column">
+        To-Do
+        <div class="add-task-button" *ngIf="isAdmin">
+          <button (click)="showAddTaskForm()" matTooltip="Add Task">
+            <i class="fa-solid fa-plus"></i> <!-- Font Awesome Plus Icon -->
+          </button> <!-- Only show if user is admin -->
+        </div>
+      </h2>
+
+   <!-- Task Form
+<div *ngIf="showTaskForm" class="task-form" [ngClass]="{'highlighted-form': showTaskForm}">
+  <input type="text" placeholder="Task Name" [(ngModel)]="newTask.taskName" 
+         [ngClass]="{'highlighted-field': showTaskForm}" />
+  
+  <select [(ngModel)]="newTask.priority" [ngClass]="{'highlighted-field': showTaskForm}">
+    <option value="HIGH">HIGH</option>
+    <option value="MEDIUM">MEDIUM</option>
+    <option value="LOW">LOW</option>
+  </select>
+  
+  <input type="date" [(ngModel)]="newTask.endDate" [min]="minDate" 
+         [ngClass]="{'highlighted-field': showTaskForm}" />
+  
+  <select [(ngModel)]="selectedUserId" (ngModelChange)="onUserChange($event)" 
+          [ngClass]="{'highlighted-field': showTaskForm}">
+    <option *ngFor="let user of users" [value]="user.userId">
+      {{ user.userName }} (ID: {{ user.userId }})
+    </option>
+  </select>
+
+  <button (click)="saveTask()" [ngClass]="{'highlighted-button': showTaskForm}">Save Task</button>
+  <button (click)="cancel()" [ngClass]="{'highlighted-button': showTaskForm}">Cancel</button>
+</div> -->
+
+<!-- Task Form -->
+<div *ngIf="showTaskForm" class="task-form" [ngClass]="{'highlighted-form': showTaskForm}">
+  <!-- Display error message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  
+  <input type="text" placeholder="Task Name" [(ngModel)]="newTask.taskName" 
+         [ngClass]="{'highlighted-field': showTaskForm}" />
+  
+  <select [(ngModel)]="newTask.priority" [ngClass]="{'highlighted-field': showTaskForm}">
+    <option value="HIGH">HIGH</option>
+    <option value="MEDIUM">MEDIUM</option>
+    <option value="LOW">LOW</option>
+  </select>
+  
+  <input type="date" [(ngModel)]="newTask.endDate" [min]="minDate" 
+         [ngClass]="{'highlighted-field': showTaskForm}" />
+  
+  <select [(ngModel)]="selectedUserId" (ngModelChange)="onUserChange($event)" 
+          [ngClass]="{'highlighted-field': showTaskForm}">
+    <option *ngFor="let user of users" [value]="user.userId">
+      {{ user.userName }} (ID: {{ user.userId }})
+    </option>
+  </select>
+
+  <button (click)="saveTask()" [ngClass]="{'highlighted-button': showTaskForm}">Save Task</button>
+  <button (click)="cancel()" [ngClass]="{'highlighted-button': showTaskForm}">Cancel</button>
+</div>
+
+    <!-- Existing Task Cards -->
+    <div *ngFor="let card of columns[0].cards" cdkDrag [cdkDragData]="card">
+      <app-task 
+    [card]="card"
+    (taskUpdated)="onTaskUpdated($event)">
+  </app-task>
+    </div>
+  </div>
+
+  <!-- In Progress Column -->
+  <div #inProgressList="cdkDropList" 
+       [cdkDropListConnectedTo]="[todoList, doneList]" 
+       [cdkDropListData]="columns[1].cards" 
+       class="column" 
+       cdkDropList 
+       (cdkDropListDropped)="onDrop($event)">
+       <h2 class="caveat-column">
+        In Progress
+
+    </h2>    <div *ngFor="let card of columns[1].cards" cdkDrag [cdkDragData]="card">
+      <app-task 
+    [card]="card"
+    (taskUpdated)="onTaskUpdated($event)">
+  </app-task>
+    </div>
+  </div>
+
+  <!-- Done Column -->
+  <div #doneList="cdkDropList" 
+       [cdkDropListConnectedTo]="[]" 
+       [cdkDropListData]="columns[2].cards" 
+       class="column" 
+       cdkDropList 
+       (cdkDropListDropped)="onDrop($event)">
+       <h2 class="caveat-column">
+        Done</h2>    <div *ngFor="let card of columns[2].cards">
+      <app-task 
+    [card]="card"
+    (taskUpdated)="onTaskUpdated($event)">
+  </app-task>
+    </div>
+  </div>
+</div>

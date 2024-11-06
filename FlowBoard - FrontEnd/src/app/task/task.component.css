@@ -1,0 +1,99 @@
+.task {
+  background-color: #fae8be,0.6;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+input, select {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.kurale-regular {
+  font-family: "Kurale", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(88, 8, 52);
+}
+
+/* Priority button styles */
+.priority-high {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(219, 59, 59); /* Change the color as needed */
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.priority-medium {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(135, 162, 243); /* Change the color as needed */
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.priority-low {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: rgb(82, 197, 82); /* Change the color as needed */
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.button-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between buttons */
+}
+
+.priority-button {
+  width: 100px; /* Adjust width if needed */
+  height: 20px; /* Adjust height if needed */
+  border-radius: 5px; /* Rounded corners */
+  display: inline-block;
+}
+
+/* Optional: Styling for the task-header to align name and priority button */
+.task-header {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the edit button */
+.edit-button {
+  background: none; /* Remove background */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer */
+  padding: 0; /* Remove padding */
+  display: inline-flex; /* Align icon properly */
+  align-items: center; /* Center icon vertically */
+}
+
+.card {
+  background-color: #f1ddaf; 
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transition */
+}
+
+/* Hover effect for card */
+.card:hover {
+  transform: scale(1.05); /* Slightly scale up the card */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  z-index: 10; /* Bring card to front */
+}

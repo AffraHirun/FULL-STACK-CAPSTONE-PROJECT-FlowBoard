@@ -1,0 +1,44 @@
+<div class="card kurale-regular">
+  <div class="task">
+    <div *ngIf="!isEditing">
+      <h3 class="kurale-regular">{{ taskName }}</h3>
+      <span class="priority-button" [ngClass]="getPriorityClass()" [matTooltip]="getPriorityTooltip()"></span>
+      <p><strong>Start Date:</strong> {{ startDate }}</p>
+      <p><strong>End Date:</strong> {{ endDate }}</p>
+      <p *ngIf="isAdmin"><strong>Assigned Employee:</strong> {{ assignedEmployee.userName }}</p>
+
+      <!-- Button Section -->
+      <div class="button-section">
+        <!-- Conditionally display the edit button based on task status -->
+        <button 
+          class="button edit-button" 
+          *ngIf="card?.status !== 'Done' && isAdmin" 
+          (click)="toggleEdit()" 
+          matTooltip="Edit">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <!-- Priority Button with Tooltip -->
+        
+      </div>
+    </div>
+
+    <div *ngIf="isEditing">
+      <input [(ngModel)]="taskName" placeholder="Task Name" />
+      <select [(ngModel)]="priority">
+        <option value="HIGH">HIGH</option>
+        <option value="MEDIUM">MEDIUM</option>
+        <option value="LOW">LOW</option>
+      </select>
+      <input type="date" [(ngModel)]="startDate" />
+      <input type="date" [(ngModel)]="endDate" />
+      <select [(ngModel)]="assignedEmployee" [ngModelOptions]="{standalone: true}">
+        <option *ngFor="let user of users" [ngValue]="user">
+          {{ user.userId }} ({{ user.userName }})
+        </option>
+      </select>
+
+      <button (click)="saveTask()">Save</button>
+      <button (click)="toggleEdit()">Cancel</button>
+    </div>
+  </div>
+</div>

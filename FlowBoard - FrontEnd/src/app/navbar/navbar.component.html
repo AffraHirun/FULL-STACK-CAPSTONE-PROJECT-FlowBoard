@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+  <!-- Title with custom font style -->
+  <span class="handjet-custom">FlowBoard</span>
+  <span class="spacer"></span>
+  
+  <!-- Conditionally hide the Home button if on the home page -->
+  <button mat-button routerLink="/home" *ngIf="!isHomePage" matTooltip="Home">
+    <mat-icon>home</mat-icon>
+  </button>
+  
+  <!-- Logout button visible when logged in -->
+  <button mat-button routerLink="/" *ngIf="authService.isLoggedIn()" matTooltip="Logout">
+    <mat-icon>logout</mat-icon>
+  </button>
+  
+  <!-- Register button visible for admins and if not on register page -->
+  <button mat-button routerLink="/register" *ngIf="isAdmin && !isRegisterPage()" matTooltip="Register">
+    <mat-icon>person_add</mat-icon>
+  </button>
+</mat-toolbar>
